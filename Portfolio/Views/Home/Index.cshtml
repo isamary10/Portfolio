@@ -2,10 +2,19 @@
     ViewData["Title"] = "Home Page";
 }
 
+<style>
+    a{
+        text-decoration: none;
+    }
+</style>
+
 <div class="text-center">
     <h1>Welcome to my Portfolio</h1>
-    <a asp-action="create" asp-controller="project">
-        Register Project
-    </a>
+
+    <div class="d-flex justify-content-evenly mt-xl-5">
+        <a class="btn btn-success btn-lg" asp-action="create" asp-controller="project" role="button">Register Project</a>
+        <a class="btn btn-success btn-lg" asp-action="index" asp-controller="project" role="button">See all Projects</a>
+    </div>
+    
 </div>
 

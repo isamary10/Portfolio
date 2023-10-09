@@ -6,48 +6,10 @@
 
 <h1>Project Registration</h1>
 
-@if (TempData["msg"] != null)
-{
-	<div class="alert alert-success">
-		@TempData["msg"]
-	</div>
-}
+<alert message="@TempData["msg"]"></alert>
 
-<a asp-action="index" asp-controller="project">
-	See your projects
-</a>
+<form asp-action="create" enctype="multipart/form-data">
 
-<form asp-action="create">
-
-	<div class="mb-3">
-		<label asp-for="Title"></label>
-		<input asp-for="Title" class="form-control"/>
-	</div>
-	<div class="mb-3">
-		<label asp-for="Description"></label>
-		<input asp-for="Description" class="form-control" />
-	</div>
-	<div class="mb-3">
-		<label asp-for="StartDate"></label>
-		<input asp-for="StartDate" class="form-control" />
-	</div>
-	<div class="mb-3">
-		<label asp-for="EndDate"></label>
-		<input asp-for="EndDate" class="form-control" />
-	</div>
-	<div class="mb-3">
-		<label asp-for="TechnologiesUsed"></label>
-		<input asp-for="TechnologiesUsed" class="form-control" />
-	</div>
-	<div class="mb-3">
-		<label asp-for="ProjectUrl"></label>
-		<input asp-for="ProjectUrl" class="form-control" />
-	</div>
-	<div class="mb-3">
-		<label asp-for="Category"></label>
-		<select asp-for="Category" asp-items="@Html.GetEnumSelectList<Category>()" class="form-select">
-			<option>Select</option>
-		</select>
-	</div>
-	<button class="btn btn-success">Create</button>
+	<partial name="_Form"/>
+	<custom-button></custom-button>
 </form>

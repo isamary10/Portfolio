@@ -1,7 +1,16 @@
+using Microsoft.EntityFrameworkCore;
+using Portfolio.Persistence;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Retrieve the connection string from appsettings.json
+var conexao = builder.Configuration.GetConnectionString("conexao");
+
+// Configure Context dependency injection, also using the connection string
+builder.Services.AddDbContext<PortfolioContext>(op => op.UseSqlServer(conexao));
 
 var app = builder.Build();
 
